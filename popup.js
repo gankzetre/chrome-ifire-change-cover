@@ -6,6 +6,7 @@ chrome.storage.sync.get("cardCover", ({ cardCover }) => {
     "url('https://i.giphy.com/UtcBRO8cxulRzkrVLc.webp')";
   changeCardCover.style.backgroundRepeat = "no-repeat";
   changeCardCover.style.backgroundPosition = "center";
+  changeCardCover.style.backgroundSize = "cover";
 });
 
 // When the button is clicked, inject setCardCover into current page
@@ -22,13 +23,13 @@ changeCardCover.addEventListener("click", async () => {
 // current page
 function setCardCover() {
   chrome.storage.sync.get("cardCover", ({ cardCover }) => {
-    const cards = document.querySelectorAll(".Card_wrapper__r1iDw");
-
-    cards.forEach((card) => {
-      card.style.backgroundImage =
-        "url('https://i.giphy.com/UtcBRO8cxulRzkrVLc.webp')";
-      card.style.backgroundRepeat = "no-repeat";
-      card.style.backgroundPosition = "center";
-    });
+    document.head.innerHTML +=
+      "<style>" +
+      ".Card_wrapper__r1iDw {" +
+      ' background: center center url("https://i.giphy.com/UtcBRO8cxulRzkrVLc.webp");' +
+      " background-repeat: no-repeat;" +
+      " background-size: cover;" +
+      "}" +
+      "</style>";
   });
 }
