@@ -2,8 +2,7 @@
 const changeCardCover = document.getElementById("changeCardCover");
 
 chrome.storage.sync.get("cardCover", ({ cardCover }) => {
-  changeCardCover.style.backgroundImage =
-    "url('https://i.giphy.com/UtcBRO8cxulRzkrVLc.webp')";
+  changeCardCover.style.backgroundImage = "url(" + cardCover + ")";
   changeCardCover.style.backgroundRepeat = "no-repeat";
   changeCardCover.style.backgroundPosition = "center";
   changeCardCover.style.backgroundSize = "cover";
@@ -26,7 +25,7 @@ function setCardCover() {
     document.head.innerHTML +=
       "<style>" +
       ".Card_wrapper__r1iDw {" +
-      ' background: center center url("https://i.giphy.com/UtcBRO8cxulRzkrVLc.webp");' +
+      " background: center center url("+ cardCover +");" +
       " background-repeat: no-repeat;" +
       " background-size: cover;" +
       "}" +

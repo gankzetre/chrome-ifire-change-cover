@@ -1,4 +1,4 @@
-button {
+.cardCover {
   height: 40px;
   width: 40px;
   outline: none;
@@ -7,6 +7,6 @@ button {
   border-radius: 2px;
 }
 
-button.current {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+.cardCover.current {
+  box-shadow: 0 0 0 2px #888888, 0 0 0 4px red;
 }
